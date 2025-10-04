@@ -1,0 +1,92 @@
+.store-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.store-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.store-name {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.store-email {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.store-address {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.store-rating-info {
+  padding: 16px 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 16px;
+}
+
+.average-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.rating-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.rating-value {
+  font-weight: 600;
+  color: #333;
+}
+
+.total-ratings {
+  font-size: 14px;
+  color: #999;
+}
+
+.user-rating-section {
+  text-align: center;
+}
+
+.user-rating-section .rating-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.rating-input {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.rating-star.interactive {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.rating-star.interactive:hover {
+  transform: scale(1.2);
+}
+
+.rating-note {
+  font-size: 12px;
+  color: #999;
+  margin-top: 8px;
+}

@@ -1,0 +1,126 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #F9FAFB;
+}
+
+.navbar {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 0;
+  box-shadow: var(--shadow-lg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-brand::before {
+  content: '⭐';
+  font-size: 28px;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.navbar-link {
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar-link:hover {
+  color: white;
+  background-color: rgba(255,255,255,.15);
+  transform: translateY(-1px);
+}
+
+.navbar-link.active {
+  color: white;
+  background-color: rgba(255,255,255,.2);
+  font-weight: 600;
+}
+
+.logout-btn {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: rgba(239, 68, 68, 0.3);
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-info {
+  font-size: 14px;
+  color: rgba(255,255,255,.9);
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(255,255,255,.1);
+  border-radius: 9999px;
+  backdrop-filter: blur(10px);
+}
+
+.main-content {
+  flex: 1;
+  animation: fadeIn 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .navbar-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar-user {
+    display: none;
+  }
+
+  .navbar-link {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
