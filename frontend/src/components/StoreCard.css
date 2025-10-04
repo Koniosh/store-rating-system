@@ -1,92 +1,181 @@
+/* Enhanced StoreCard.css */
 .store-card {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.store-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.store-card:hover::before {
+  transform: scaleX(1);
 }
 
 .store-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-color);
+}
+
+.store-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.store-card:hover::after {
+  opacity: 0.1;
 }
 
 .store-name {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #333;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  transition: var(--transition-fast);
 }
 
-.store-email {
-  color: #666;
+.store-card:hover .store-name {
+  color: var(--primary-color);
+}
+
+.store-email,
+.store-address {
+  color: var(--text-secondary);
   font-size: 14px;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.store-address {
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 16px;
+.store-email::before {
+  content: '📧';
+  font-size: 16px;
+}
+
+.store-address::before {
+  content: '📍';
+  font-size: 16px;
 }
 
 .store-rating-info {
-  padding: 16px 0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-  margin-bottom: 16px;
+  padding: 20px 0;
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+  margin: 20px 0;
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-left: -8px;
+  margin-right: -8px;
 }
 
 .average-rating {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .rating-label {
-  font-weight: 500;
-  color: #555;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .rating-value {
-  font-weight: 600;
-  color: #333;
+  font-weight: 800;
+  color: var(--primary-color);
+  font-size: 28px;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .total-ratings {
-  font-size: 14px;
-  color: #999;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  text-align: center;
+  font-weight: 500;
 }
 
 .user-rating-section {
   text-align: center;
+  padding: 20px 0;
 }
 
 .user-rating-section .rating-label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .rating-input {
   display: flex;
   justify-content: center;
-  gap: 4px;
-  margin-bottom: 8px;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.rating-star {
+  font-size: 28px;
+  color: var(--border-color);
+  transition: var(--transition-fast);
 }
 
 .rating-star.interactive {
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
 .rating-star.interactive:hover {
-  transform: scale(1.2);
+  transform: scale(1.3) translateY(-3px);
+  color: #fbbf24;
+  filter: drop-shadow(0 4px 8px rgba(251, 191, 36, 0.3));
+}
+
+.rating-star.filled {
+  color: #fbbf24;
+  animation: starPop 0.3s ease;
+}
+
+@keyframes starPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
 }
 
 .rating-note {
   font-size: 12px;
-  color: #999;
-  margin-top: 8px;
+  color: var(--text-tertiary);
+  margin-top: 12px;
+  font-style: italic;
 }
